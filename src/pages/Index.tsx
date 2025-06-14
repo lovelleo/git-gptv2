@@ -1,8 +1,9 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { SynthCard, SynthButton, SynthInput, SynthToggle } from "@/components/synth";
 import { useTheme } from "@/hooks/useTheme";
-import { Github, Mail, Lock, Sun, Moon } from "lucide-react";
+import { Github, Mail, Lock, Sun, Moon, BarChart3, FileText } from "lucide-react";
 
 const Index = () => {
   const { theme, toggleTheme } = useTheme();
@@ -32,6 +33,25 @@ const Index = () => {
             {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
           </SynthButton>
         </div>
+
+        {/* Navigation Demo */}
+        <SynthCard className="text-center space-y-4">
+          <h2 className="text-2xl font-semibold text-synth-text">Demo Pages</h2>
+          <div className="flex gap-4 justify-center">
+            <Link to="/dashboard/manager">
+              <SynthButton variant="primary">
+                <BarChart3 className="h-4 w-4" />
+                Manager Dashboard
+              </SynthButton>
+            </Link>
+            <Link to="/project/1/stories">
+              <SynthButton variant="secondary">
+                <FileText className="h-4 w-4" />
+                Project Stories
+              </SynthButton>
+            </Link>
+          </div>
+        </SynthCard>
 
         {/* Component Showcase */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

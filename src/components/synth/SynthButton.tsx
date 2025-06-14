@@ -33,7 +33,7 @@ const synthButtonVariants = cva(
 );
 
 export interface SynthButtonProps
-  extends Omit<HTMLMotionProps<"button">, "children">,
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof synthButtonVariants> {
   asChild?: boolean;
   children?: React.ReactNode;
@@ -41,10 +41,20 @@ export interface SynthButtonProps
 
 const SynthButton = React.forwardRef<HTMLButtonElement, SynthButtonProps>(
   ({ className, variant, size, asChild = false, children, ...props }, ref) => {
-    const Comp = asChild ? Slot : motion.button;
+    if (asChild) {
+      return (
+        <Slot
+          className={cn(synthButtonVariants({ variant, size, className }))}
+          ref={ref}
+          {...props}
+        >
+          {children}
+        </Slot>
+      );
+    }
     
     return (
-      <Comp
+      <motion.button
         className={cn(synthButtonVariants({ variant, size, className }))}
         ref={ref}
         whileHover={{ scale: 1.02 }}
@@ -53,7 +63,7 @@ const SynthButton = React.forwardRef<HTMLButtonElement, SynthButtonProps>(
         {...props}
       >
         {children}
-      </Comp>
+      </motion.button>
     );
   }
 );
