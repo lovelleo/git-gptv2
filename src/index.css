@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,20 +38,28 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Synth Design System - Light Theme */
+    --synth-bg: #e8e8e8;
+    --synth-surface: #f0f0f0;
+    --synth-primary: #6366f1;
+    --synth-secondary: #8b5cf6;
+    --synth-text: #1f2937;
+    --synth-text-muted: #6b7280;
+    --synth-accent: #f59e0b;
+
+    /* Neumorphic Shadows - Light Theme */
+    --shadow-neumorphic: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+    --shadow-neumorphic-inset: inset 8px 8px 16px #d1d1d1, inset -8px -8px 16px #ffffff;
+    --shadow-neumorphic-hover: 12px 12px 24px #d1d1d1, -12px -12px 24px #ffffff;
+    --shadow-neumorphic-pressed: inset 4px 4px 8px #d1d1d1, inset -4px -4px 8px #ffffff;
   }
 
   .dark {
@@ -89,6 +98,21 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Synth Design System - Dark Theme */
+    --synth-bg: #2d2d2d;
+    --synth-surface: #383838;
+    --synth-primary: #818cf8;
+    --synth-secondary: #a78bfa;
+    --synth-text: #f9fafb;
+    --synth-text-muted: #9ca3af;
+    --synth-accent: #fbbf24;
+
+    /* Neumorphic Shadows - Dark Theme */
+    --shadow-neumorphic: 8px 8px 16px #1a1a1a, -8px -8px 16px #404040;
+    --shadow-neumorphic-inset: inset 8px 8px 16px #1a1a1a, inset -8px -8px 16px #404040;
+    --shadow-neumorphic-hover: 12px 12px 24px #1a1a1a, -12px -12px 24px #404040;
+    --shadow-neumorphic-pressed: inset 4px 4px 8px #1a1a1a, inset -4px -4px 8px #404040;
   }
 }
 
@@ -98,6 +122,6 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-synth-bg text-synth-text transition-colors duration-300;
   }
 }

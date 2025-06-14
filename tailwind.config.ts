@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Synth Design System Colors
+				synth: {
+					bg: 'var(--synth-bg)',
+					surface: 'var(--synth-surface)',
+					primary: 'var(--synth-primary)',
+					secondary: 'var(--synth-secondary)',
+					text: 'var(--synth-text)',
+					'text-muted': 'var(--synth-text-muted)',
+					accent: 'var(--synth-accent)',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -67,6 +78,13 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				// Neumorphic Shadows
+				'neumorphic': 'var(--shadow-neumorphic)',
+				'neumorphic-inset': 'var(--shadow-neumorphic-inset)',
+				'neumorphic-hover': 'var(--shadow-neumorphic-hover)',
+				'neumorphic-pressed': 'var(--shadow-neumorphic-pressed)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +102,17 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'synth-press': {
+					'0%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(0.98)' },
+					'100%': { transform: 'scale(1)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'synth-press': 'synth-press 0.15s ease-out'
 			}
 		}
 	},
