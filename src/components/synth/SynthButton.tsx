@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
@@ -33,7 +33,7 @@ const synthButtonVariants = cva(
 );
 
 export interface SynthButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onAnimationStart' | 'onAnimationEnd'>,
     VariantProps<typeof synthButtonVariants> {
   asChild?: boolean;
   children?: React.ReactNode;
@@ -53,9 +53,6 @@ const SynthButton = React.forwardRef<HTMLButtonElement, SynthButtonProps>(
       );
     }
     
-    // Separate motion props from HTML button props
-    const { onDrag, onDragStart, onDragEnd, ...buttonProps } = props;
-    
     return (
       <motion.button
         className={cn(synthButtonVariants({ variant, size, className }))}
@@ -63,7 +60,7 @@ const SynthButton = React.forwardRef<HTMLButtonElement, SynthButtonProps>(
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        {...buttonProps}
+        {...props}
       >
         {children}
       </motion.button>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export interface SynthInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onAnimationStart' | 'onAnimationEnd'> {
   label?: string;
   error?: string;
   icon?: React.ReactNode;
@@ -13,9 +13,6 @@ export interface SynthInputProps
 const SynthInput = React.forwardRef<HTMLInputElement, SynthInputProps>(
   ({ className, type, label, error, icon, ...props }, ref) => {
     const [isFocused, setIsFocused] = React.useState(false);
-    
-    // Separate motion props from HTML input props
-    const { onDrag, onDragStart, onDragEnd, ...inputProps } = props;
 
     return (
       <div className="space-y-2">
@@ -47,7 +44,7 @@ const SynthInput = React.forwardRef<HTMLInputElement, SynthInputProps>(
               scale: isFocused ? 1.01 : 1,
             }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            {...inputProps}
+            {...props}
           />
         </div>
         {error && (
