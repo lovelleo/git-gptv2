@@ -1,151 +1,135 @@
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { SynthCard, SynthButton, SynthInput, SynthToggle } from "@/components/synth";
-import { useTheme } from "@/hooks/useTheme";
-import { Github, Mail, Lock, Sun, Moon, BarChart3, FileText } from "lucide-react";
+import { SynthButton, SynthCard } from "@/components/synth";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { BarChart3, FileText, Settings, User, FolderOpen } from "lucide-react";
 
 const Index = () => {
-  const { theme, toggleTheme } = useTheme();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isToggled, setIsToggled] = useState(false);
+  const navigate = useNavigate();
+
+  const navigationCards = [
+    {
+      title: "Manager Dashboard",
+      description: "View project overviews and team performance",
+      icon: BarChart3,
+      path: "/dashboard/manager",
+      color: "bg-synth-primary"
+    },
+    {
+      title: "Project Stories",
+      description: "Manage user stories and development tasks",
+      icon: FileText,
+      path: "/project/1/stories",
+      color: "bg-synth-secondary"
+    },
+    {
+      title: "Project Analysis",
+      description: "AI-powered project insights and analysis",
+      icon: BarChart3,
+      path: "/project/1/analysis",
+      color: "bg-synth-accent"
+    },
+    {
+      title: "Artifacts",
+      description: "Manage project documents and files",
+      icon: FolderOpen,
+      path: "/artifacts",
+      color: "bg-green-500"
+    },
+    {
+      title: "Admin Settings",
+      description: "Configure system settings and integrations",
+      icon: Settings,
+      path: "/admin/settings",
+      color: "bg-red-500"
+    },
+    {
+      title: "User Profile",
+      description: "Manage your personal settings and preferences",
+      icon: User,
+      path: "/profile",
+      color: "bg-purple-500"
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-synth-bg p-8">
-      <div className="max-w-4xl mx-auto space-y-8">
+    <div className="min-h-screen bg-synth-bg p-6">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold text-synth-text">
-            Synth Design System
-          </h1>
-          <p className="text-synth-text-muted">
-            Neumorphic components with smooth animations
-          </p>
-          
-          {/* Theme Toggle */}
-          <SynthButton
-            variant="circular"
-            size="circular"
-            onClick={toggleTheme}
-            className="mx-auto"
+        <div className="text-center mb-12">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl font-bold text-synth-text mb-4"
           >
-            {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-          </SynthButton>
+            Synth Project Management
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-synth-text-muted"
+          >
+            Neumorphic design meets AI-powered development
+          </motion.p>
         </div>
 
-        {/* Navigation Demo */}
-        <SynthCard className="text-center space-y-4">
-          <h2 className="text-2xl font-semibold text-synth-text">Demo Pages</h2>
-          <div className="flex gap-4 justify-center">
-            <Link to="/dashboard/manager">
-              <SynthButton variant="primary">
-                <BarChart3 className="h-4 w-4" />
-                Manager Dashboard
-              </SynthButton>
-            </Link>
-            <Link to="/project/1/stories">
-              <SynthButton variant="secondary">
-                <FileText className="h-4 w-4" />
-                Project Stories
-              </SynthButton>
-            </Link>
-          </div>
-        </SynthCard>
-
-        {/* Component Showcase */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {/* Login Card Demo */}
-          <SynthCard className="space-y-6">
-            <div className="text-center space-y-2">
-              <h2 className="text-2xl font-semibold text-synth-text">Login</h2>
-              <p className="text-synth-text-muted">Sign in to your account</p>
-            </div>
-
-            {/* OAuth Buttons */}
-            <div className="flex gap-4 justify-center">
-              <SynthButton variant="circular" size="circular">
-                <Github className="h-5 w-5" />
-              </SynthButton>
-              <SynthButton variant="circular" size="circular">
-                <Mail className="h-5 w-5" />
-              </SynthButton>
-            </div>
-
-            <div className="text-center text-synth-text-muted">
-              <span>or</span>
-            </div>
-
-            {/* Form Inputs */}
-            <div className="space-y-4">
-              <SynthInput
-                label="Email"
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                icon={<Mail className="h-4 w-4" />}
-              />
-              <SynthInput
-                label="Password"
-                type="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                icon={<Lock className="h-4 w-4" />}
-              />
-            </div>
-
-            <SynthButton variant="primary" className="w-full">
-              Sign In
-            </SynthButton>
-          </SynthCard>
-
-          {/* Components Demo */}
-          <SynthCard className="space-y-6">
-            <h2 className="text-2xl font-semibold text-synth-text">Components</h2>
-            
-            {/* Button Variants */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-medium text-synth-text">Buttons</h3>
-              <div className="flex flex-wrap gap-2">
-                <SynthButton variant="default">Default</SynthButton>
-                <SynthButton variant="primary">Primary</SynthButton>
-                <SynthButton variant="secondary">Secondary</SynthButton>
-                <SynthButton variant="ghost">Ghost</SynthButton>
-                <SynthButton variant="flat">Flat</SynthButton>
-              </div>
-            </div>
-
-            {/* Card Variants */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-medium text-synth-text">Cards</h3>
-              <div className="grid grid-cols-1 gap-4">
-                <SynthCard variant="elevated" padding="sm">
-                  <p className="text-sm text-synth-text">Elevated Card</p>
+        {/* Navigation Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {navigationCards.map((card, index) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.path}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <SynthCard className="h-full hover:shadow-neumorphic-hover transition-shadow cursor-pointer">
+                  <div 
+                    className="h-full flex flex-col"
+                    onClick={() => navigate(card.path)}
+                  >
+                    <div className={`w-12 h-12 ${card.color} rounded-xl shadow-neumorphic flex items-center justify-center mb-4`}>
+                      <Icon className="h-6 w-6 text-white" />
+                    </div>
+                    
+                    <h3 className="text-lg font-semibold text-synth-text mb-2">
+                      {card.title}
+                    </h3>
+                    
+                    <p className="text-synth-text-muted mb-4 flex-grow">
+                      {card.description}
+                    </p>
+                    
+                    <SynthButton 
+                      variant="primary" 
+                      size="sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(card.path);
+                      }}
+                    >
+                      Open
+                    </SynthButton>
+                  </div>
                 </SynthCard>
-                <SynthCard variant="inset" padding="sm">
-                  <p className="text-sm text-synth-text">Inset Card</p>
-                </SynthCard>
-                <SynthCard variant="flat" padding="sm">
-                  <p className="text-sm text-synth-text">Flat Card</p>
-                </SynthCard>
-              </div>
-            </div>
-
-            {/* Toggle */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-medium text-synth-text">Toggle</h3>
-              <SynthToggle
-                label="Dark Mode"
-                description="Toggle between light and dark themes"
-                checked={isToggled}
-                onCheckedChange={setIsToggled}
-              />
-            </div>
-          </SynthCard>
+              </motion.div>
+            );
+          })}
         </div>
+
+        {/* Footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-12 pt-8 border-t border-synth-text/10"
+        >
+          <p className="text-synth-text-muted">
+            Built with ❤️ using React, TypeScript, and Neumorphic Design
+          </p>
+        </motion.div>
       </div>
     </div>
   );
