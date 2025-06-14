@@ -13,6 +13,9 @@ export interface SynthInputProps
 const SynthInput = React.forwardRef<HTMLInputElement, SynthInputProps>(
   ({ className, type, label, error, icon, ...props }, ref) => {
     const [isFocused, setIsFocused] = React.useState(false);
+    
+    // Separate motion props from HTML input props
+    const { onDrag, onDragStart, onDragEnd, ...inputProps } = props;
 
     return (
       <div className="space-y-2">
@@ -44,7 +47,7 @@ const SynthInput = React.forwardRef<HTMLInputElement, SynthInputProps>(
               scale: isFocused ? 1.01 : 1,
             }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            {...props}
+            {...inputProps}
           />
         </div>
         {error && (
