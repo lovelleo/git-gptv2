@@ -8,10 +8,6 @@ import { ThemeProvider } from "@/hooks/useTheme";
 import Index from "./pages/Index";
 import ManagerDashboard from "./pages/ManagerDashboard";
 import ProjectStories from "./pages/ProjectStories";
-import ProjectAnalysis from "./pages/ProjectAnalysis";
-import Artifacts from "./pages/Artifacts";
-import AdminSettings from "./pages/AdminSettings";
-import UserProfile from "./pages/UserProfile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,10 +23,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/dashboard/manager" element={<ManagerDashboard />} />
             <Route path="/project/:id/stories" element={<ProjectStories />} />
-            <Route path="/project/:id/analysis" element={<ProjectAnalysis />} />
-            <Route path="/artifacts" element={<Artifacts />} />
-            <Route path="/admin/settings" element={<AdminSettings />} />
-            <Route path="/profile" element={<UserProfile />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
