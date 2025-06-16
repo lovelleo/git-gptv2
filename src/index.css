@@ -46,20 +46,20 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Synth Design System - Light Theme */
-    --synth-bg: #e8e8e8;
-    --synth-surface: #f0f0f0;
-    --synth-primary: #6366f1;
-    --synth-secondary: #8b5cf6;
-    --synth-text: #1f2937;
+    /* Synth Design System - Light Theme (Grey Shades) */
+    --synth-bg: #f5f5f5;
+    --synth-surface: #ffffff;
+    --synth-primary: #4a4a4a;
+    --synth-secondary: #6b6b6b;
+    --synth-text: #1a1a1a;
     --synth-text-muted: #6b7280;
-    --synth-accent: #f59e0b;
+    --synth-accent: #8a8a8a;
 
-    /* Neumorphic Shadows - Light Theme */
-    --shadow-neumorphic: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
-    --shadow-neumorphic-inset: inset 8px 8px 16px #d1d1d1, inset -8px -8px 16px #ffffff;
-    --shadow-neumorphic-hover: 12px 12px 24px #d1d1d1, -12px -12px 24px #ffffff;
-    --shadow-neumorphic-pressed: inset 4px 4px 8px #d1d1d1, inset -4px -4px 8px #ffffff;
+    /* Neumorphic Shadows - Light Theme (Adjusted for grey) */
+    --shadow-neumorphic: 8px 8px 16px #e0e0e0, -8px -8px 16px #ffffff;
+    --shadow-neumorphic-inset: inset 8px 8px 16px #e0e0e0, inset -8px -8px 16px #ffffff;
+    --shadow-neumorphic-hover: 12px 12px 24px #e0e0e0, -12px -12px 24px #ffffff;
+    --shadow-neumorphic-pressed: inset 4px 4px 8px #e0e0e0, inset -4px -4px 8px #ffffff;
   }
 
   .dark {
@@ -99,20 +99,20 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Synth Design System - Dark Theme */
-    --synth-bg: #2d2d2d;
-    --synth-surface: #383838;
-    --synth-primary: #818cf8;
-    --synth-secondary: #a78bfa;
-    --synth-text: #f9fafb;
+    /* Synth Design System - Dark Theme (Grey Shades) */
+    --synth-bg: #1a1a1a;
+    --synth-surface: #2a2a2a;
+    --synth-primary: #d4d4d4;
+    --synth-secondary: #a3a3a3;
+    --synth-text: #f5f5f5;
     --synth-text-muted: #9ca3af;
-    --synth-accent: #fbbf24;
+    --synth-accent: #737373;
 
-    /* Neumorphic Shadows - Dark Theme */
-    --shadow-neumorphic: 8px 8px 16px #1a1a1a, -8px -8px 16px #404040;
-    --shadow-neumorphic-inset: inset 8px 8px 16px #1a1a1a, inset -8px -8px 16px #404040;
-    --shadow-neumorphic-hover: 12px 12px 24px #1a1a1a, -12px -12px 24px #404040;
-    --shadow-neumorphic-pressed: inset 4px 4px 8px #1a1a1a, inset -4px -4px 8px #404040;
+    /* Neumorphic Shadows - Dark Theme (Adjusted for grey) */
+    --shadow-neumorphic: 8px 8px 16px #0d0d0d, -8px -8px 16px #373737;
+    --shadow-neumorphic-inset: inset 8px 8px 16px #0d0d0d, inset -8px -8px 16px #373737;
+    --shadow-neumorphic-hover: 12px 12px 24px #0d0d0d, -12px -12px 24px #373737;
+    --shadow-neumorphic-pressed: inset 4px 4px 8px #0d0d0d, inset -4px -4px 8px #373737;
   }
 }
 

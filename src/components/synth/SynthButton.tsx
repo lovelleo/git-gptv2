@@ -33,7 +33,7 @@ const synthButtonVariants = cva(
 );
 
 export interface SynthButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onDrag'>,
     VariantProps<typeof synthButtonVariants> {
   asChild?: boolean;
   children?: React.ReactNode;
@@ -60,7 +60,7 @@ const SynthButton = React.forwardRef<HTMLButtonElement, SynthButtonProps>(
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        {...props}
+        {...(props as any)}
       >
         {children}
       </motion.button>
